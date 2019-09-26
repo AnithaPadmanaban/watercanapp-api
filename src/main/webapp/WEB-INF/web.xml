@@ -1,0 +1,77 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAvailabilityServlet</servlet-name>
+  	<display-name>ViewAvailabilityServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.ViewAvailabilityServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderCanServlet</servlet-name>
+  	<display-name>OrderCanServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.OrderCanServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReserveCanServlet</servlet-name>
+  	<display-name>ReserveCanServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.ReserveCanServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminLoginServlet</servlet-name>
+  	<display-name>AdminLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateStockServlet</servlet-name>
+  	<display-name>UpdateStockServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.UpdateStockServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAvailabilityServlet</servlet-name>
+  	<url-pattern>/ViewAvailabilityServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderCanServlet</servlet-name>
+  	<url-pattern>/OrderCanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReserveCanServlet</servlet-name>
+  	<url-pattern>/ReserveCanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminLoginServlet</servlet-name>
+  	<url-pattern>/AdminLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateStockServlet</servlet-name>
+  	<url-pattern>/UpdateStockServlet</url-pattern>
+  </servlet-mapping>
+</web-app>
