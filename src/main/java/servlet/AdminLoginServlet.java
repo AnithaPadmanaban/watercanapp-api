@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import controller.AdminController;
+import exception.DBException;
 import model.Admin;
 
 public class AdminLoginServlet extends HttpServlet {
@@ -22,7 +23,13 @@ public class AdminLoginServlet extends HttpServlet {
 		admin.setPassword(adminPassword);
 		PrintWriter out = response.getWriter();
 		AdminController adminController = new AdminController();
-		String value = adminController.adminLogin(admin);
+		String value = null;
+		try {
+			value = adminController.adminLogin(admin);
+		} catch (DBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// logger.info(value);
 		out.write(value);
 		out.flush();
