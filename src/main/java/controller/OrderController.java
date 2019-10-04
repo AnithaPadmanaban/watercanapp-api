@@ -2,6 +2,7 @@ package controller;
 
 import com.google.gson.JsonObject;
 
+import exception.DBException;
 import model.OrderCan;
 import model.User;
 import service.OrderService;
@@ -15,18 +16,17 @@ public class OrderController {
 			orderService.orderCan(user, orderCan);
 			message = "Success";
 
-		} catch (Exception e) {
+		} catch (DBException e) {
 			errorMessage = e.getMessage();
 		}
 		JsonObject obj = new JsonObject();
 		if (message != null) {
 
 			obj.addProperty("message", message);
-		} else if (errorMessage != null) {
+		} else if (errorMessage!= null) {
 			obj.addProperty("errorMessage", errorMessage);
 		}
-		//System.out.println("Return value" + obj.toString());
+	
 		return obj.toString();
-
 	}
 }

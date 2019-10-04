@@ -17,23 +17,19 @@ public class OrderCanServlet extends HttpServlet {
 			throws ServletException, IOException {
 		OrderCan orderCan = new OrderCan();
 		User user = new User();
-		try {
-			String canOrder = request.getParameter("can");
-			int can = Integer.parseInt(canOrder);
-			String userIdVal = request.getParameter("userId");
-			int userId = Integer.parseInt(userIdVal);
-			// System.out.println("can");
-			user.setUserId(userId);
-			orderCan.setCanOrder(can);
-			OrderController OrderController = new OrderController();
-			String json = OrderController.canOrder(user, orderCan);
-			// System.out.println("Servlet response" + json);
-			PrintWriter out = response.getWriter();
-			out.write("value" + json);
-			out.flush();
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("Error");
-		}
+
+		String canOrder = request.getParameter("can");
+		int can = Integer.parseInt(canOrder);
+		String userIdVal = request.getParameter("userId");
+		int userId = Integer.parseInt(userIdVal);
+		System.out.println("can");
+		user.setUserId(userId);
+		orderCan.setCanOrder(can);
+		OrderController OrderController = new OrderController();
+		String json = OrderController.canOrder(user, orderCan);
+		System.out.println("Servlet response" + json);
+		PrintWriter out = response.getWriter();
+		out.write(json);
+		out.flush();
 	}
 }

@@ -46,6 +46,18 @@
   	<description></description>
   	<servlet-class>servlet.UpdateStockServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>OrderReservedCanServlet</servlet-name>
+  	<display-name>OrderReservedCanServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlet.OrderReservedCanServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderModifiedReservedCan</servlet-name>
+  	<display-name>OrderModifiedReservedCan</display-name>
+  	<description></description>
+  	<servlet-class>servlet.OrderModifiedReservedCan</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -73,5 +85,13 @@
   <servlet-mapping>
   	<servlet-name>UpdateStockServlet</servlet-name>
   	<url-pattern>/UpdateStockServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderReservedCanServlet</servlet-name>
+  	<url-pattern>/OrderReservedCanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderModifiedReservedCan</servlet-name>
+  	<url-pattern>/OrderModifiedReservedCan</url-pattern>
   </servlet-mapping>
 </web-app>

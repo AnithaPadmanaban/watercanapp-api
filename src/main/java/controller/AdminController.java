@@ -3,14 +3,13 @@ package controller;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import exception.DBException;
 import model.Admin;
-import model.User;
 import service.AdminService;
-import service.UserService;
 
 public class AdminController {
 
-	public String adminLogin(Admin admin) {
+	public String adminLogin(Admin admin) throws DBException {
 		String errorMessage = null;
 
 		Boolean value = false;
@@ -19,10 +18,10 @@ public class AdminController {
 
 			value = adminService.adminLoginProcess(admin);
 			if (value == false) {
-				throw new Exception("Invalid Email or Password");
+				throw new DBException("Invalid Email or Password");
 			}
 
-		} catch (Exception e) {
+		} catch (DBException e) {
 			errorMessage = e.getMessage();
 		}
 
@@ -39,5 +38,4 @@ public class AdminController {
 
 		return json;
 	}
-
 }

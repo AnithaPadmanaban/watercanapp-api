@@ -2,6 +2,8 @@ package controller;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+
+import exception.DBException;
 import model.User;
 import service.UserService;
 
@@ -18,10 +20,10 @@ public class UserController {
 
 			userId = UserService.loginProcess(user);
 			if (userId == 0) {
-				throw new Exception("Invalid Email or Password");
+				throw new DBException("Invalid Email or Password");
 			}
 
-		} catch (Exception e) {
+		} catch (DBException e) {
 			errorMessage = e.getMessage();
 		}
 
@@ -55,7 +57,7 @@ public class UserController {
 
 			userService.registerProcess(user);
 			message = "Success";
-		} catch (Exception e) {
+		} catch (DBException e) {
 			errorMessage = e.getMessage();
 		}
 		JsonObject obj = new JsonObject();

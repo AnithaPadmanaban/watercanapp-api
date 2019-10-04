@@ -1,21 +1,20 @@
 package controller;
 
 import com.google.gson.JsonObject;
-
+import exception.DBException;
 import model.StockDetails;
 import service.AdminService;
 import service.StockService;
-import service.UserService;
 
 public class StockController {
 
-	public StockDetails viewStock() {
+	public StockDetails viewStock() throws DBException {
 		StockDetails stockDetails = null;
 		StockService stockService = new StockService();
 		try {
 			stockDetails = stockService.viewAvailableStock();
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (DBException e) {
+			throw new DBException(e.getMessage());
 		}
 		return stockDetails;
 	}

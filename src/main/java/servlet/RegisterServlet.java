@@ -20,9 +20,7 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String address = request.getParameter("address");
-
 		String json = userController.register(name, email, password, address);
-
 		PrintWriter out = response.getWriter();
 		out.write(json);
 		out.flush();

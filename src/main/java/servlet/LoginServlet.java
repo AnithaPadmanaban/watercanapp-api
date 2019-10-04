@@ -23,12 +23,9 @@ public class LoginServlet extends HttpServlet {
 		User user = new User();
 		user.setEmail(userEmail);
 		user.setPassword(userPassword);
-		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();
 		UserController userController = new UserController();
 		String userValue = userController.login(userEmail, userPassword);
-		HttpSession session = request.getSession();
-		session.setAttribute("USER_ID", userValue);
 		out.write(userValue);
 		out.flush();
 	}

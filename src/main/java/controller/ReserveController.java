@@ -1,5 +1,6 @@
 package controller;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import model.ReserveCan;
 import model.User;
@@ -9,11 +10,36 @@ public class ReserveController {
 
 	public String reserveCan(User user, ReserveCan reserveCan) {
 		String errorMessage = null;
+		int reserveId = 0;
+		try {
+			ReserveService reserveService = new ReserveService();
+			reserveId = reserveService.reserveCanDetail(user, reserveCan);
+			if (reserveId == 0) {
+				throw new Exception("Invalid");
+			}
 
+		} catch (Exception e) {
+			errorMessage = e.getMessage();
+		}
+		String json = null;
+		Gson gson = new Gson();
+		if (reserveId != 0) {
+			json = gson.toJson(reserveId);
+
+		} else if (reserveId == 0) {
+			JsonObject obj = new JsonObject();
+			obj.addProperty("errorMessage", errorMessage);
+			json = obj.toString();
+		}
+		return json;
+	}
+
+	public String orderReservedCan(User user, ReserveCan reserveCan) {
+		String errorMessage = null;
 		String message = null;
 		try {
 			ReserveService reserveService = new ReserveService();
-			reserveService.reserveCanDetail(user, reserveCan);
+			reserveService.orderReservedCan(user, reserveCan);
 			message = "Success";
 
 		} catch (Exception e) {
@@ -25,7 +51,8 @@ public class ReserveController {
 		} else if (errorMessage != null) {
 			obj.addProperty("errorMessage", errorMessage);
 		}
-		//System.out.println("Return value" + obj.toString());
+		// System.out.println("Return value" + obj.toString());
 		return obj.toString();
 	}
+
 }
