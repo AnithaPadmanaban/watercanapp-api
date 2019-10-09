@@ -27,7 +27,6 @@ public class OrderCanServlet extends HttpServlet {
 		orderCan.setCanOrder(can);
 		OrderController OrderController = new OrderController();
 		String json = OrderController.canOrder(user, orderCan);
-		System.out.println("Servlet response" + json);
 		PrintWriter out = response.getWriter();
 		out.write(json);
 		out.flush();
